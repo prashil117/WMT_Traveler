@@ -24,20 +24,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of drivers">
                                         <td>
                                             <input type="checkbox" id="ch2-1" />
                                             <label for="ch2-1"></label>
                                         </td>
 
-                                        <td><a href="#"><span class="list-enq-name">Marsha Hogan</span><span class="list-enq-city">Illunois, United States</span></a>
+                                        <td><a href="#"><span class="list-enq-name">{{item.driver_name}}</span></a>
                                         </td>
                                         <td>
-                                            <span class="label label-primary">02</span>
+                                            <span class="label label-primary">{{item.driver_license_no}}</span>
                                         </td>
-                                        <td><span class="list-enq-name">3453453</span>
+                                        <td><span class="list-enq-name">{{item.Mobile_no}}</span>
                                             <td>
-                                                <span class="label label-danger">Delete</span>
+                                                <a (click)="onDriverDelete(item)"><span class="label label-danger">Delete</span></a>
                                             </td>
                                             <td>
                                                 <a routerLink="/Editdriver"> <span class="label label-success">Edit</span></a>

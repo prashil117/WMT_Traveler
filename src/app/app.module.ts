@@ -17,6 +17,7 @@ import { AddCarComponent } from './add-car/add-car.component';
 import { AdddriverComponent } from './adddriver/adddriver.component';
 import { EditdriverComponent } from './editdriver/editdriver.component';
 import { LoginService } from './login/login.service';
+import { DriverService } from "../app/driver/driver.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { LoginService } from './login/login.service';
     FormsModule,
     routingArray
   ],
-  providers: [LoginService],
+  providers: [LoginService,DriverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
