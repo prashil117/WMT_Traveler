@@ -10,6 +10,10 @@ import { DriverComponent } from './driver/driver.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { routingArray } from './app.router';
+import { EditCarComponent } from './edit-car/edit-car.component';
+import { AddCarComponent } from './add-car/add-car.component';
+import { AdddriverComponent } from './adddriver/adddriver.component';
+import { EditdriverComponent } from './editdriver/editdriver.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { routingArray } from './app.router';
     CarComponent,
     DriverComponent,
     LoginComponent,
-    ForgotComponent
+    ForgotComponent,
+    EditCarComponent,
+    AddCarComponent,
+    AdddriverComponent,
+    EditdriverComponent
   ],
   imports: [
     BrowserModule,
