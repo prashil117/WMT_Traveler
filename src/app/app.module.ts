@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule,HttpHeaders } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -14,6 +16,7 @@ import { EditCarComponent } from './edit-car/edit-car.component';
 import { AddCarComponent } from './add-car/add-car.component';
 import { AdddriverComponent } from './adddriver/adddriver.component';
 import { EditdriverComponent } from './editdriver/editdriver.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +34,11 @@ import { EditdriverComponent } from './editdriver/editdriver.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     routingArray
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

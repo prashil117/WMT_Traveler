@@ -4,19 +4,21 @@
             <img src="./assets/images/logo.png" alt="" />
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="first_name1" type="text" class="validate">
+           <!--         <input id="first_name1" type="text" class="validate" [(ngModel)]="email" name="email">-->
                     <label for="first_name1">User Name</label>
+                    <input type="text" [(ngModel)]="email" name="email">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="last_name" type="password" class="validate">
+                    <!--<input id="last_name" type="password" class="validate" [(ngModel)]="password" name="password">-->
                     <label for="last_name">Password</label>
+                    <input type="password" [(ngModel)]="password" name="password">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <a class="waves-effect waves-light btn-large btn-log-in" routerLink="/Dashboard">Login</a>
+                    <a class="waves-effect waves-light btn-large btn-log-in" (click)="onLogin()">Login</a>
                 </div>
             </div>
             <a routerLink="/Forgot" class="for-pass">Forgot Password?</a>
