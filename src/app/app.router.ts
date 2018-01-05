@@ -9,6 +9,7 @@ import { AddCarComponent } from './add-car/add-car.component';
 import { EditdriverComponent } from './editdriver/editdriver.component';
 import { AdddriverComponent } from './adddriver/adddriver.component';
 
+
 const routing:Routes = [
     {path: '',redirectTo:'/Login',pathMatch:'full'},
     {path:'Car',component:CarComponent},
@@ -16,7 +17,7 @@ const routing:Routes = [
     {path:'Driver',component:DriverComponent},
     {path:'Login',component:LoginComponent},
     {path:'Forgot',component:ForgotComponent},
-    {path:'car',component:CarComponent},
+    //{path:'car',component:CarComponent},
     {path:'Editcar',component:EditCarComponent},
     {path:'Addcar',component:AddCarComponent},
     {path:'Editdriver',component:EditdriverComponent},

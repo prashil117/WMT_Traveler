@@ -6,7 +6,7 @@ import { Traveler } from '../../traveller';
 @Injectable()
 export class DriverService {
   public url: string = "http://localhost:3000/drivers/";
-  public url1: string = "http://localhost:3000/te/";
+ // public url1: string = "http://localhost:3000/te/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";
@@ -22,10 +22,10 @@ export class DriverService {
     return this._http.delete(this.url + id, { headers: new HttpHeaders().set(this.content, this.header) });
   }
 
-  getTravellerByEmail(email)
-  {
-    return this._http.get<Traveler[]>(this.url1+ email);
-  }
+ // getTravellerByEmail(email)
+ // {
+   // return this._http.get<Traveler[]>(this.url1+ email);
+  //}
 
 
 }

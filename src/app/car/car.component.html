@@ -29,26 +29,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of car" >
                                         <td>
                                             <input type="checkbox" id="ch2-1" />
                                             <label for="ch2-1"></label>
                                         </td>
                                         <td><span class="list-img"><img src="./assets/images/user/1.png" alt=""></span>
                                         </td>
-                                        <td><a href="#"><span class="list-enq-name">Marsha Hogan</span><span class="list-enq-city">Illunois, United States</span></a>
+                                        <td><a href="#"><span class="list-enq-name">{{item.car_name}}</span><span class="list-enq-city"></span></a>
                                         </td>
-                                        <td>+01 3214 6522</td>
-                                        <td>chadengle@dummy.com</td>
-                                        <td>Australia</td>
+                                        <td>{{tid}}</td>
+                                        <td>{{item.car_type}}</td>
+                                        <td>{{item.car_rate}}</td>
                                         <td>
-                                            <span class="label label-primary">02</span>
-                                        </td>
-                                        <td>
-                                            <span class="label label-info">36</span>
+                                            <span class="label label-primary">{{item.car_details}}</span>
                                         </td>
                                         <td>
-                                            <span class="label label-danger">Delete</span>
+                                            <span class="label label-info">{{item.car_category}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="label label-danger" (click)="onCarDelete(item)">Delete</span>
                                         </td>
                                         <td>
                                             <a routerLink="/Editcar"><span class="label label-success">Edit</span></a>
