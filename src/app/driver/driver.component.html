@@ -26,7 +26,7 @@
                                 <tbody>
                                     <tr *ngFor="let item of drivers">
                                         <td>
-                                            <input type="checkbox" id="ch2-1" />
+                                            <input type="checkbox" id="ch2-1" name="drivercheck" (change)="checkChange(item)" />
                                             <label for="ch2-1"></label>
                                         </td>
 
@@ -40,10 +40,11 @@
                                                 <a (click)="onDriverDelete(item)"><span class="label label-danger">Delete</span></a>
                                             </td>
                                             <td>
-                                                <a routerLink="/Editdriver"> <span class="label label-success">Edit</span></a>
+                                                <a (click)="editTraveller(item)"> <span class="label label-success">Edit</span></a>
                                             </td>
                                     </tr>
                                 </tbody>
+                                <button (click)="deleteAll()" class=" ion ion-trash-b btn btn-danger"><span> Delete All </span></button>
                             </table>
                         </div>
                     </div>

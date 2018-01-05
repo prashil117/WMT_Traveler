@@ -20,7 +20,7 @@ const routing:Routes = [
     //{path:'car',component:CarComponent},
     {path:'Editcar',component:EditCarComponent},
     {path:'Addcar',component:AddCarComponent},
-    {path:'Editdriver',component:EditdriverComponent},
+    {path:'Editdriver/:id',component:EditdriverComponent},
     {path:'Adddriver',component:AdddriverComponent},
 
 ]

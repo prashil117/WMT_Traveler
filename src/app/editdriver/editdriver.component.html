@@ -12,27 +12,28 @@
                 <form>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="list-title" type="text" class="validate">
-                            <label for="list-title">Driver Name</label>
+                            <input id="list-title" type="text" class="validate" [(ngModel)]="name" name="name">
+                            <!--<label for="list-title">Driver Name</label>-->
                         </div>
 
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="Package-auth" type="text" class="validate">
-                            <label for="Package-auth">License No</label>
+                                <!--<label for="Package-auth">License No</label>-->
+                            <input id="Package-auth" type="text" class="validate" [(ngModel)]="no" name="no" placeholder="license no">
+                            
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="Package-auth" type="text" class="validate">
-                            <label for="Package-auth">Mobile_no</label>
+                            <input id="Package-auth" type="text" class="validate" [(ngModel)]="mob" name="mob">
+                            <!--<label for="Package-auth">Mobile_no</label>-->
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="submit" class="waves-effect waves-light btn-large" value="Submit">
+                            <button type="submit" class="waves-effect waves-light btn-large" value="Submit" (click)="onUpdate()">Update</button>
                         </div>
                     </div>
                 </form>

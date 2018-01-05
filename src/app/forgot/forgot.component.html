@@ -4,13 +4,13 @@
             <img src="./assets/images/logo.png" alt="" />
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="first_name1" type="text" class="validate">
+                    <input id="first_name1" type="text" class="validate" [(ngModel)]="email" name="email">
                     <label for="first_name1">User Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <a class="waves-effect waves-light btn-large btn-log-in" href="#">Login</a>
+                    <a class="waves-effect waves-light btn-large btn-log-in" (click)="onSend()">Send</a>
                 </div>
             </div>
             <a routerLink="/Login" class="for-pass">Login</a>

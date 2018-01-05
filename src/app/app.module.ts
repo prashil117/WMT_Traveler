@@ -20,6 +20,7 @@ import { LoginService } from './login/login.service';
 import { DriverService } from "../app/driver/driver.service";
 import { CarService } from '../app/car/car.service';
 import { TravellerService } from './traveller.service';
+import { EmailService } from './forgot/email.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { TravellerService } from './traveller.service';
     FormsModule,
     routingArray
   ],
-  providers: [LoginService,DriverService,CarService,TravellerService],
+  providers: [LoginService,DriverService,CarService,TravellerService,EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
