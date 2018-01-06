@@ -1,16 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Traveler } from '../traveller';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class TravellerService {
   public url: string = "http://localhost:3000/temail/";
+  public url1: string = "http://localhost:3000/travellers/";
+  content:string="Content-Type";
+  header:string="application/json";
 
   constructor(public _http:HttpClient) { }
 
   getTravellerByEmail(id)
   {
     return this._http.get(this.url+id);
+  }
+
+  editTraveler(id,item){
+    let body = JSON.stringify(item);
+    return this._http.put(this.url1+id, body, { headers: new HttpHeaders().set(this.content, this.header) });
+ 
   }
 
 }

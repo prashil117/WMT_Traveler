@@ -6,7 +6,7 @@ import { Traveler } from '../../traveller';
 import { DriverService } from '../driver/driver.service';
 import { TravellerService } from '../traveller.service';
 import {  CarService} from '../car/car.service';
-import {  car} from '../car/carc';
+import { car } from '../car/carc';
 
 @Component({
   selector: 'app-edit-car',
@@ -49,8 +49,9 @@ img:string="";
   );
 
 
-  this.data.getCarById(this.id).subscribe(
+  this.data.getCarBynoId(this.id).subscribe(
     (data:car[])=>{
+      console.log(data);
       this.name=data[0].car_name;
       this.color=data[0].car_color;
       this.type=data[0].car_type;
@@ -69,7 +70,7 @@ img:string="";
     let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid)
     this.data.editCar(this.id,Car).subscribe(
       ()=>{
-        this._router.navigate(['/Cars']);
+        this._router.navigate(['/Car']);
       }
     );
   }

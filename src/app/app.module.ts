@@ -21,6 +21,8 @@ import { DriverService } from "../app/driver/driver.service";
 import { CarService } from '../app/car/car.service';
 import { TravellerService } from './traveller.service';
 import { EmailService } from './forgot/email.service';
+import { EdittravellerComponent } from './edittraveller/edittraveller.component';
+import { EdittravellerprofileComponent } from './edittravellerprofile/edittravellerprofile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { EmailService } from './forgot/email.service';
     EditCarComponent,
     AddCarComponent,
     AdddriverComponent,
-    EditdriverComponent
+    EditdriverComponent,
+    EdittravellerComponent,
+    EdittravellerprofileComponent
   ],
   imports: [
     BrowserModule,

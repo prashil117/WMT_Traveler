@@ -6,6 +6,7 @@ import { Traveler } from '../../traveller';
 @Injectable()
 export class CarService {
   public url: string = "http://localhost:3000/cars/";
+  public url1: string ="http://localhost:3000/caremail/";
 
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
@@ -15,7 +16,7 @@ export class CarService {
 
   getCarById(email) {
     
-        return this._http.get<car[]>(this.url + email);
+        return this._http.get<car[]>(this.url1 + email);
       }
     
       deleteCar(id: number) {
@@ -32,6 +33,11 @@ export class CarService {
           let body = JSON.stringify(item);
           return this._http.put(this.url+id, body, { headers: new HttpHeaders().set(this.content, this.header) });
        
+        }
+
+          getCarBynoId(id)
+        {
+          return this._http.get<car[]>(this.url+id);
         }
       
 } 

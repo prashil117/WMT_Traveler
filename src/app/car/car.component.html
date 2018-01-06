@@ -38,7 +38,7 @@
                                         </td>
                                         <td><a href="#"><span class="list-enq-name">{{item.car_name}}</span><span class="list-enq-city"></span></a>
                                         </td>
-                                        <td>{{tid}}</td>
+                                        <td>{{item.car_color}}</td>
                                         <td>{{item.car_type}}</td>
                                         <td>{{item.car_rate}}</td>
                                         <td>
@@ -51,7 +51,7 @@
                                             <span class="label label-danger" (click)="onCarDelete(item)">Delete</span>
                                         </td>
                                         <td>
-                                            <a routerLink="/Editcar"><span class="label label-success">Edit</span></a>
+                                            <a (click)="editCar(item)"><span class="label label-success">Edit</span></a>
                                         </td>
 
                                     </tr>

@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="sb2-2">
+  <div class="sb2-2-3">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box-inn-sp">
+          <div class="inn-title">
+            <h4>Traveller Details</h4>
+            <a routerLink="/Adddriver">
+              <span class="label label-success">Add</span>
+            </a>
+            <!-- Dropdown Structure -->
+
+          </div>
+          <div class="tab-inn">
+            <div class="table-responsive table-desi">
+              <table>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td><input type="text" required name="name" [(ngModel)]="name" placeholder=" name"></td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td><input type="text" required name="email" [(ngModel)]="email" placeholder=" name" readonly></td>
+
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td><input type="text" required name="address" [(ngModel)]="address" placeholder=" name"></td>
+
+                  </tr>
+                  <tr>
+                    <td>City</td>
+                    <td><input type="text" required name="city" [(ngModel)]="city" placeholder=" name"></td>
+
+                  </tr>
+                </thead>
+
+                <button (click)="onUpdate()" class=" ion ion-trash-b btn btn-danger">
+                  <span> Done </span>
+                </button>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

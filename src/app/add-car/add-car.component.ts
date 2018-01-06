@@ -37,8 +37,7 @@ export class AddCarComponent implements OnInit {
   }
   onAdd() {
 
-    alert(this.type);
-    alert(this.category);
+   
     this.data.addCar(new car(this.name, this.color, this.type, '', this.rate, this.desc, this.category,this.tid)).subscribe(
       (data: car[]) => {
         console.log(data);

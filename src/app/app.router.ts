@@ -8,6 +8,8 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { AddCarComponent } from './add-car/add-car.component';
 import { EditdriverComponent } from './editdriver/editdriver.component';
 import { AdddriverComponent } from './adddriver/adddriver.component';
+import { EdittravellerComponent } from './edittraveller/edittraveller.component';
+import { EdittravellerprofileComponent } from './edittravellerprofile/edittravellerprofile.component';
 
 
 const routing:Routes = [
@@ -18,10 +20,11 @@ const routing:Routes = [
     {path:'Login',component:LoginComponent},
     {path:'Forgot',component:ForgotComponent},
     //{path:'car',component:CarComponent},
-    {path:'Editcar',component:EditCarComponent},
+    {path:'Editcar/:id',component:EditCarComponent},
     {path:'Addcar',component:AddCarComponent},
     {path:'Editdriver/:id',component:EditdriverComponent},
     {path:'Adddriver',component:AdddriverComponent},
-
+    {path:'Edittraveller',component:EdittravellerComponent},
+    {path:'Edittravellerprofile',component:EdittravellerprofileComponent}
 ]
 export const routingArray=RouterModule.forRoot(routing);

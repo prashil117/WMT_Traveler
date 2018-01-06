@@ -31,6 +31,7 @@ export class CarComponent implements OnInit {
     this.data.getCarById(this.email).subscribe(
       (data:any)=>{ 
         this.car=data;
+        console.log(this.car);
       }
     );
   }
@@ -45,5 +46,11 @@ export class CarComponent implements OnInit {
       }
     );
   }
+
+  editCar(item){
+    
+     this._router.navigate(['/Editcar',item.car_id]);
+   }
+
 
 }
