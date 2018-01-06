@@ -28,5 +28,11 @@ export class CarService {
               let body = JSON.stringify(item);
               return this._http.post(this.url, body, { headers: new HttpHeaders().set(this.content, this.header) });
         }
+        editCar(id,item){
+          let body = JSON.stringify(item);
+          return this._http.put(this.url+id, body, { headers: new HttpHeaders().set(this.content, this.header) });
+       
+        }
+      
 } 
 
