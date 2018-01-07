@@ -10,6 +10,7 @@ import { EditdriverComponent } from './editdriver/editdriver.component';
 import { AdddriverComponent } from './adddriver/adddriver.component';
 import { EdittravellerComponent } from './edittraveller/edittraveller.component';
 import { EdittravellerprofileComponent } from './edittravellerprofile/edittravellerprofile.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 const routing:Routes = [
@@ -25,6 +26,7 @@ const routing:Routes = [
     {path:'Editdriver/:id',component:EditdriverComponent},
     {path:'Adddriver',component:AdddriverComponent},
     {path:'Edittraveller',component:EdittravellerComponent},
-    {path:'Edittravellerprofile',component:EdittravellerprofileComponent}
+    {path:'Edittravellerprofile',component:EdittravellerprofileComponent},
+    {path:'Resetpassword',component:ResetpasswordComponent},
 ]
 export const routingArray=RouterModule.forRoot(routing);

@@ -23,6 +23,7 @@ import { TravellerService } from './traveller.service';
 import { EmailService } from './forgot/email.service';
 import { EdittravellerComponent } from './edittraveller/edittraveller.component';
 import { EdittravellerprofileComponent } from './edittravellerprofile/edittravellerprofile.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EdittravellerprofileComponent } from './edittravellerprofile/edittravel
     AdddriverComponent,
     EditdriverComponent,
     EdittravellerComponent,
-    EdittravellerprofileComponent
+    EdittravellerprofileComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
