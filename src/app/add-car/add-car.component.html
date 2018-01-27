@@ -19,10 +19,13 @@
                             <div class="file-field">
                                 <div class="btn">
                                     <span>File</span>
-                                    <input type="file">
+                                    <input type="file" id="inputpic" (change)="fileChange(input)" #input>
                                 </div>
-                                <div class="file-path-wrapper">
+                                <!-- <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Upload Car Image">
+                                </div>-->
+                                <div *ngFor="let file_src of file_srcs; let i = index">
+                                    <img [attr.src]='file_src' alt="" />
                                 </div>
                             </div>
                         </div>
