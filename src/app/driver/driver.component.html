@@ -12,6 +12,7 @@
                     </div>
                     <div class="tab-inn">
                         <div class="table-responsive table-desi">
+                                <input class="form-control" type=text name="search" placeholder="Search" [(ngModel)]="txtsearch" #input1 (keyup)="onSearch(input1.value)">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>

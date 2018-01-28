@@ -18,6 +18,7 @@ export class DriverComponent implements OnInit {
   public traveller:Traveler[]=[];
   public tid:number;
   public delarr:Driver[]=[];
+  txtsearch:string="";
   constructor(public data1:DriverService,public _router:Router,public data:TravellerService) { }
 
   ngOnInit() {
@@ -33,6 +34,7 @@ export class DriverComponent implements OnInit {
     this.data1.getDriversByEmail(this.email).subscribe(
       (data:any)=>{
         this.drivers=data;
+        this.drivers1=data;
       }
     );
   }
@@ -91,6 +93,21 @@ export class DriverComponent implements OnInit {
              function()
              {
              });
+         }
+       }
+
+       onSearch(item)
+       {
+    
+         if(item!='')
+         {
+           this.drivers=this.drivers1.filter((x)=>x.driver_name.indexOf(item)!==-1);
+           
+         }
+         else
+         {
+           this.drivers=this.drivers1;
+           
          }
        }
 

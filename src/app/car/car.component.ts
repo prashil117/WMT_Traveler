@@ -13,8 +13,10 @@ import {Traveler  } from '../../traveller';
 })
 export class CarComponent implements OnInit {
   public car:car[]=[];
+  public car1:car[]=[];
   public traveller:Traveler[]=[];
   public tid:number;
+  txtsearch:string;
   email:string=localStorage.getItem('Email');
 
   constructor(public data:CarService,public _router:Router,public data1:TravellerService) { }
@@ -31,6 +33,7 @@ export class CarComponent implements OnInit {
     this.data.getCarById(this.email).subscribe(
       (data:any)=>{ 
         this.car=data;
+        this.car1=data;
         console.log(this.car);
       }
     );
@@ -50,6 +53,21 @@ export class CarComponent implements OnInit {
   editCar(item){
     
      this._router.navigate(['/Editcar',item.car_id]);
+   }
+
+   onSearch(item)
+   {
+
+     if(item!='')
+     {
+       this.car=this.car1.filter((x)=>x.car_name.indexOf(item)!==-1);
+       
+     }
+     else
+     {
+       this.car=this.car1;
+       
+     }
    }
 
 
