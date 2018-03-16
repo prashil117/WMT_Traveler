@@ -4,6 +4,7 @@ import { Driver } from "./driverc";
 import { Router } from '@angular/router';
 import {Traveler  } from '../../traveller';
 import {  TravellerService} from '../traveller.service';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
 
 @Component({
@@ -19,6 +20,8 @@ export class DriverComponent implements OnInit {
   public tid:number;
   public delarr:Driver[]=[];
   txtsearch:string="";
+  displayedColumns = ['driver_name', 'driver_license_no','Mobile_no','driver_action'];
+  dataSource: MatTableDataSource<Driver>;
   constructor(public data1:DriverService,public _router:Router,public data:TravellerService) { }
 
   ngOnInit() {
@@ -35,6 +38,8 @@ export class DriverComponent implements OnInit {
       (data:any)=>{
         this.drivers=data;
         this.drivers1=data;
+        this.dataSource = new MatTableDataSource(this.drivers);
+        console.log(this.drivers);
       }
     );
   }
@@ -49,10 +54,16 @@ export class DriverComponent implements OnInit {
     );
   }
 
-  editTraveller(item){
+  editDriver(item){
     
      this._router.navigate(['/Editdriver',item.driver_id]);
    }
+
+   applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
 
    i:number=0;
    

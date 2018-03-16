@@ -9,7 +9,7 @@
             </div>
             <!-->ddsf-->
             <div class="bor">
-                <form>
+              <!--  <form>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="list-title" type="text" class="validate" [(ngModel)]="name" name="name">
@@ -23,7 +23,7 @@
                                 </div>
                                 <!-- <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Upload Car Image">
-                                </div>-->
+                                </div>
                                 <div *ngFor="let file_src of file_srcs; let i = index">
                                     <img [attr.src]='file_src' alt="" />
                                 </div>
@@ -63,7 +63,64 @@
                             <input type="submit" class="waves-effect waves-light btn-large" value="Submit" (click)="onAdd()">
                         </div>
                     </div>
+                </form>-->
+                <form class="form-horizontal m-t-20" (ngSubmit)="onAdd(addform)" #addform="ngForm">
+
+                        <div class="form-group">
+                                <div class="col-xs-12"> <mat-form-field hintLabel="Enter Valid Name" class="example-full-width">
+                                    <input matInput ngModel required password name="car_name" type="text" placeholder="Enter Name" #car_name="ngModel">
+                                     <mat-error *ngIf="car_name.hasError('required')" >Enter Name</mat-error>
+                                  </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                            </div>
+
+                            <div class="form-group">
+                                    <div class="col-xs-12"> <mat-form-field hintLabel="Enter Valid Description" class="example-full-width">
+                                        <input matInput ngModel required password name="car_details" type="text" placeholder="Enter Address" #car_details="ngModel">
+                                         <mat-error *ngIf="car_details.hasError('required')" >Enter Address</mat-error>
+                                      </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-12"> <mat-form-field hintLabel="Enter Valid Description" class="example-full-width">
+                                        <input matInput ngModel required password name="car_color" type="text" placeholder="Enter Address" #car_color="ngModel">
+                                         <mat-error *ngIf="car_color.hasError('required')" >Enter Address</mat-error>
+                                      </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                        <div class="col-xs-12"> <!--<input class="form-control" type="text" required="" placeholder="image" [(ngModel)]="user_photo" name="user_photo" id="user_photo">-->
+                                     <!--    <input type="file" id="inputpic" (change)="fileChange(input)" #input>-->
+                                        <input type="file" id="inputpic" (change)="onFileSelected($event)" #input>
+                                     <div *ngFor="let file_src of file_srcs; let i = index">
+                                         <img [attr.src]='file_src' alt="" />
+                                     </div>
+                                     </div>
+                                     </div>
+
+                                <div class="form-group">
+                                        <div class="col-xs-12"><input type="radio" [(ngModel)]="type" id="type" name="ac" value="ac"> Ac
+                                            <input type="radio" name="nac" [(ngModel)]="type" id="type" value="nac">Non Ac<!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-12"><input type="radio" [(ngModel)]="category" id="category" name="suv" value="suv">SUV
+                                            <input type="radio" name="sedan" [(ngModel)]="category" id="category" value="sedan">SEDAN<!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                    </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-xs-12"> <mat-form-field hintLabel="Enter Valid Rate" class="example-full-width">
+                                                <input matInput ngModel required  name="car_rate" type="text" placeholder="Enter rate" #car_rate="ngModel">
+                                                 <mat-error *ngIf="car_rate.hasError('required')" >Enter Email</mat-error>
+                                                 <mat-error *ngIf="car_rate.hasError('car_rate')" >Enter valid Email Address</mat-error>                    
+                                              </mat-form-field> <!--<input class="form-control" type="text" [(ngModel)]='email_id' required name="email_id" id="email_id">--></div>
+                                        </div>
+                <div class="form-group text-center m-t-40">
+                    <div  class="col-xs-12"> <button type="submit" class="btn btn-primary btn-block btn-lg waves-effect waves-light" [disabled]="!addform.form.valid">Add</button></div>
+
+                </div>
                 </form>
+
             </div>
         </div>
     </div>

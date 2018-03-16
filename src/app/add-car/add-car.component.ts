@@ -14,7 +14,7 @@ import { Traveler } from '../../traveller';
 export class AddCarComponent implements OnInit {
   name: string = "";
   desc: string = "";
-  rate: number;
+  rate: string="";
   color: string = "";
   type: string = "";
   category: string = "";
@@ -26,7 +26,7 @@ export class AddCarComponent implements OnInit {
   public traveller: Traveler[] = [];
   public tid: number;
   email: string = localStorage.getItem('Email');
-
+  selectedFile:File=null;
 
   constructor(public data: CarService, public _router: Router, public data1: TravellerService,public changeDetectorRef:ChangeDetectorRef) { }
 
@@ -39,7 +39,7 @@ export class AddCarComponent implements OnInit {
       }
     );
   }
-  fileChange(input){
+/*  fileChange(input){
     console.log("done");
     this.readFiles(input.files);
 
@@ -123,11 +123,37 @@ export class AddCarComponent implements OnInit {
       // callback with the results
       callback(dataUrl, img.src.length, dataUrl.length);
     };
-  }
-  onAdd() {
+  }*/
+
+  onFileSelected(value){
+    this.selectedFile=<File>value.target.files[0];
+    
+    console.log(value);
+      }
+
+
+  onAdd(addform) {
 
    
-    this.data.addCar(new car(this.name, this.color, this.type,this.car_img, this.rate, this.desc, this.category,this.tid)).subscribe(
+    this.name=addform.value.car_name;
+    this.desc=addform.value.car_details;
+    this.rate=addform.value.car_rate;
+    this.color=addform.value.car_color;
+
+ //   let item=new User(this.email_id,this.password,this.user_name,this.address,this.bod,this.gender,this.user_photo,this.mobile);
+ const fd=new FormData();
+ fd.append('car_name',this.name);
+ fd.append('car_color',this.color);
+ fd.append('car_type',this.type);
+ fd.append('image',this.selectedFile,this.selectedFile.name);
+ fd.append('car_rate',this.rate);
+ fd.append('car_details',this.desc);
+ fd.append('car_category',this.category);
+ fd.append('fk_traveller_id',this.tid.toString());
+    console.log(fd);
+
+
+    this.data.addCar((fd)).subscribe(
       (data: car[]) => {
         console.log(data);
         console.log(this.type);

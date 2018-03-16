@@ -24,10 +24,10 @@ export class CarService {
       }
 
 
-        addCar(item) {
+        addCar(item:FormData) {
           
-              let body = JSON.stringify(item);
-              return this._http.post(this.url, body, { headers: new HttpHeaders().set(this.content, this.header) });
+           //   let body = JSON.stringify(item);
+              return this._http.post(this.url,item);
         }
         editCar(id,item){
           let body = JSON.stringify(item);

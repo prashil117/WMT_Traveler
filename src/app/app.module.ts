@@ -24,6 +24,8 @@ import { EmailService } from './forgot/email.service';
 import { EdittravellerComponent } from './edittraveller/edittraveller.component';
 import { EdittravellerprofileComponent } from './edittravellerprofile/edittravellerprofile.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTableModule,MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -40,12 +42,19 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     EditdriverComponent,
     EdittravellerComponent,
     EdittravellerprofileComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule,
     routingArray
   ],
   providers: [LoginService,DriverService,CarService,TravellerService,EmailService],
