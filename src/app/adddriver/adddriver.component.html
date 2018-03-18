@@ -1,6 +1,6 @@
 <app-navbar>
 </app-navbar>
-<div class="sb2-2">
+<!--<div class="sb2-2">
 
     <div class="sb2-2-add-blog sb2-2-1">
         <div class="box-inn-sp">
@@ -39,4 +39,46 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
+
+<div class="accountbg"></div>
+<div class="wrapper-page">
+    <div class="panel panel-color panel-primary panel-pages">
+        <div class="panel-body">
+            <a routerLink="/Driver">Back</a>
+            <h3 class="text-center m-t-0 m-b-15"> <label class="logo logo-admin"><span>Add</span>Driver</label></h3>
+            <h4 class="text-muted text-center m-t-0"></h4>
+            <form class="form-horizontal m-t-20" (ngSubmit)="onAdd(addform)" #addform="ngForm">
+                
+                                        <div class="form-group">
+                                                <div class="col-xs-12"> <mat-form-field hintLabel="Enter Valid Name" class="example-full-width">
+                                                    <input matInput ngModel required name="driver_name" type="text" placeholder="Enter Name" #driver_name="ngModel">
+                                                     <mat-error *ngIf="driver_name.hasError('required')" >Enter Name</mat-error>
+                                                  </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                            </div>
+                
+                                            <div class="form-group">
+                                                    <div class="col-xs-12"> <mat-form-field hintLabel="Enter Valid License No" class="example-full-width">
+                                                        <input matInput ngModel required password name="driver_license_no" type="text" placeholder="Enter License No" #driver_license_no="ngModel">
+                                                         <mat-error *ngIf="driver_license_no.hasError('required')" >Enter License No</mat-error>
+                                                      </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                                </div>
+                
+                                                <div class="form-group">
+                                                    <div class="col-xs-12"> <mat-form-field hintLabel="Enter Mobile No" class="example-full-width">
+                                                        <input matInput ngModel required password name="Mobile_no" type="text" placeholder="Enter No" #Mobile_no="ngModel">
+                                                         <mat-error *ngIf="Mobile_no.hasError('required')" >Enter Mobile No</mat-error>
+                                                      </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                                </div>
+                                                
+                                               
+                                <div class="form-group text-center m-t-40">
+                                    <div  class="col-xs-12"> <button type="submit" class="btn btn-primary btn-block btn-lg waves-effect waves-light" [disabled]="!addform.form.valid">Add</button></div>
+                
+                                </div>
+                                </form>
+                
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>

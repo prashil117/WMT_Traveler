@@ -11,9 +11,9 @@ import { Traveler } from '../../traveller';
 })
 export class EdittravellerComponent implements OnInit {
   public _subscription:Subscription;
-  name:string="";
-  address:string="";
-  city:string=""; 
+  name1:string="";
+  address1:string="";
+  city1:string=""; 
   public traveller: Traveler[] = [];
   email:string=localStorage.getItem('Email');
  
@@ -24,9 +24,9 @@ export class EdittravellerComponent implements OnInit {
     this._data.getTravellerByEmail(this.email).subscribe(
       (data: Traveler[]) => {
         this.traveller = data;
-        this.name = this.traveller[0].traveller_name;
-        this.address = this.traveller[0].traveller_address;
-        this.city = this.traveller[0].city;
+        this.name1 = this.traveller[0].traveller_name;
+        this.address1 = this.traveller[0].traveller_address;
+        this.city1 = this.traveller[0].city;
       }
     );
 

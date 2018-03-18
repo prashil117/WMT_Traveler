@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
-<div class="sb2-2">
-  <div class="sb2-2-3">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="box-inn-sp">
-          <div class="inn-title">
-            <h4>Traveller Details</h4>
+<div class="accountbg"></div>
+<div class="wrapper-page">
+    <div class="panel panel-color panel-primary panel-pages">
+        <div class="panel-body">
+            <a routerLink="/Dashboard">Back</a>
+            <h3 class="text-center m-t-0 m-b-15"> <label class="logo logo-admin"><span>Edit</span>Traveller</label></h3>
+            <h4 class="text-muted text-center m-t-0"></h4>
         
             <!-- Dropdown Structure -->
 
-          </div>
+          <!-- </div>
           <div class="tab-inn">
             <div class="table-responsive table-desi">
               <table>
@@ -45,4 +45,38 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<form>
+  
+                          <div class="form-group">
+                                  <div class="col-xs-12"> <mat-form-field  class="example-full-width">
+                                      <input matInput ngModel required password name="name" type="text" placeholder="Enter Name" [(ngModel)]="name1" #name="ngModel" >
+                                       <mat-error *ngIf="name.hasError('required')" >Enter Name</mat-error>
+                                    </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                              </div>
+  
+                              <div class="form-group">
+                                      <div class="col-xs-12"> <mat-form-field  class="example-full-width">
+                                          <input matInput ngModel required password name="address" type="text" placeholder="Enter Details" [(ngModel)]="address1" #address="ngModel" >
+                                           <mat-error *ngIf="address.hasError('required')" >Enter Address</mat-error>
+                                        </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <div class="col-xs-12"> <mat-form-field  class="example-full-width">
+                                          <input matInput ngModel required password name="city" type="text" placeholder="Enter Color" [(ngModel)]="city1" #city="ngModel" >
+                                           <mat-error *ngIf="city.hasError('required')" >Enter City</mat-error>
+                                        </mat-form-field><!--<input type="password" class="form-control" [(ngModel)]='password' required name="password" id="password">--></div>
+                                  </div>
+                                  
+                                  <div class="form-group text-center m-t-40">
+                      <div  class="col-xs-12"> <button type="submit" class="btn btn-primary btn-block btn-lg waves-effect waves-light" (click)="onUpdate()">Update</button></div>
+  
+                  </div>
+                  </form>
+  
+              <!--</div>-->
+          </div>
+      </div>
+  </div>

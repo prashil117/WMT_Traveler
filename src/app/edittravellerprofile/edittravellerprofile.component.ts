@@ -11,9 +11,9 @@ import { Traveler } from '../../traveller';
 })
 export class EdittravellerprofileComponent implements OnInit {
   public _subscription:Subscription;
-  name:string="";
-  address:string="";
-  city:string="";
+  name1:string="";
+  address1:string="";
+  city1:string="";
   tid:number; 
   public traveller: Traveler[] = [];
   email:string=localStorage.getItem('Email');
@@ -25,9 +25,9 @@ export class EdittravellerprofileComponent implements OnInit {
     this._data.getTravellerByEmail(this.email).subscribe(
       (data: Traveler[]) => {
         this.traveller = data;
-        this.name = this.traveller[0].traveller_name;
-        this.address = this.traveller[0].traveller_address;
-        this.city = this.traveller[0].city;
+        this.name1 = this.traveller[0].traveller_name;
+        this.address1 = this.traveller[0].traveller_address;
+        this.city1 = this.traveller[0].city;
         this.tid = this.traveller[0].traveller_id;
       }
     );
@@ -35,7 +35,7 @@ export class EdittravellerprofileComponent implements OnInit {
   }
 
   onUpdate(){
-    let traveler=new Traveler(null,this.name,this.email,'112',this.address,'',this.city);
+    let traveler=new Traveler(null,this.name1,this.email,'112',this.address1,'',this.city1);
     this._data.editTraveler(this.tid,traveler).subscribe(
       ()=>{
         this._router.navigate(['/Edittraveller']);

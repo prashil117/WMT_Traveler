@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TravellerService } from '../traveller.service';
+import { Traveler } from '../../traveller';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +10,18 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   email:string="";
-  constructor(public _router:Router) { }
+  name:string="";
+  img:string="";
+  constructor(public _router:Router,public data:TravellerService) { }
 
   ngOnInit() {
     this.email=localStorage.getItem('Email');
+    this.data.getTravellerByEmail(this.email).subscribe(
+      (data: Traveler[]) => {
+        this.name = data[0].traveller_name;
+        this.img=data[0].traveller_img;
+      }
+    );;
   }
 
   onEdit()

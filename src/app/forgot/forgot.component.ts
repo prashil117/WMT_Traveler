@@ -18,8 +18,10 @@ export class ForgotComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSend()
+  onLogin(login) 
   {
+    this.email=login.value.email;
+    console.log(this.email);
     
     if(this.email=="")
     {
@@ -33,7 +35,7 @@ export class ForgotComponent implements OnInit {
           if(data.length==1){
             var msg=data[0].traveller_name+" your password is "+data[0].traveller_password;
             console.log(msg);
-            this._email.sendMail(new Forget(msg,this.email,"Reseting EMail Password")).subscribe(
+            this._email.sendMail(new Forget(msg,this.email,"Reseting Email Password")).subscribe(
               (data:any)=>
               {
                   

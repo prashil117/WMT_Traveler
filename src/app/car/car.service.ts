@@ -7,6 +7,7 @@ import { Traveler } from '../../traveller';
 export class CarService {
   public url: string = "http://localhost:3000/cars/";
   public url1: string ="http://localhost:3000/caremail/";
+  public url2:string="http://localhost:3000/deletallcar/";
 
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
@@ -38,6 +39,12 @@ export class CarService {
           getCarBynoId(id)
         {
           return this._http.get<car[]>(this.url+id);
+        }
+
+        deleteAllCar(item:car[])
+        {
+          let body = JSON.stringify(item);
+          return this._http.post(this.url2, body, { headers: new HttpHeaders().set(this.content, this.header) });
         }
       
 } 

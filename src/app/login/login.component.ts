@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  onLogin() {
+  onLogin(login) {
+    this.email_id=login.value.email_id;
+    this.password=login.value.password;
     let item = new Traveler(null,'',this.email_id,this.password,'','','');
     this.data.login(item).subscribe(
       (data1:Traveler[]) => {

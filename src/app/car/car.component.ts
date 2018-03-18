@@ -17,6 +17,7 @@ export class CarComponent implements OnInit {
   public car:car[]=[];
   public car1:car[]=[];
   public traveller:Traveler[]=[];
+  public delarr:car[]=[];
   public tid:number;
   txtsearch:string;
   email:string=localStorage.getItem('Email');
@@ -52,6 +53,11 @@ dataSource: MatTableDataSource<car>;
     this.dataSource.filter = filterValue;
   }
   
+  onNavigate()
+  {
+    this._router.navigate(['/Addcar']);
+  }
+
   onCarDelete(item)
   {
   
@@ -82,5 +88,44 @@ dataSource: MatTableDataSource<car>;
      }
    }
 
-
+   i:number=0;
+   
+     checkChange(item:car)
+       {
+         
+           if(this.delarr.find(x=>x==item))
+           {
+             this.delarr.splice(this.delarr.indexOf(item),1);
+           }
+           else
+           {
+             this.delarr.push(item);
+           }
+           console.log(this.delarr);
+         
+       }
+     deleteAll()
+     {
+       
+       if(confirm("Are you sure you want to delete"))
+       {
+         
+         this.data.deleteAllCar(this.delarr).subscribe(
+           (data:any)=>{
+             for(this.i=0;this.i<this.delarr.length;this.i++)
+             {
+               this.car.splice(this.car.indexOf(this.delarr[this.i]),1);
+               console.log("DONE");
+             }
+             this.car1=[];
+           },
+           function(err)
+           {
+             console.log(err);
+           },
+           function()
+           {
+           });
+       }
+     } 
 }

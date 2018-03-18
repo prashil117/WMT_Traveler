@@ -1,4 +1,4 @@
-<div class="blog-login">
+<!-- <div class="blog-login">
     <div class="blog-login-in">
         <form>
             <img src="./assets/images/logo.png" alt="" />
@@ -16,4 +16,33 @@
             <a routerLink="/Login" class="for-pass">Login</a>
         </form>
     </div>
-</div>
+</div> -->
+
+<div class="accountbg">
+        
+        </div>
+        <div class="wrapper-page">
+            <div class="panel panel-color panel-primary panel-pages">
+                <div class="panel-body">
+                    <h3 class="text-center m-t-0 m-b-15"> <a href="index.html" class="logo logo-admin"><span>Web</span>Admin</a></h3>
+                    <h4 class="text-muted text-center m-t-0"><b>Sign In</b></h4>
+                    <form class="form-horizontal m-t-20" action="index.html" (ngSubmit)="onLogin(loginform)" #loginform="ngForm">
+                        <!--<form class="form-horizontal m-t-20">-->
+                        <div class="form-group">
+                            <div class="col-xs-12"> <mat-form-field hintLabel="Enter Valid Email" class="example-full-width">
+                                <input matInput ngModel required email name="email" type="email" placeholder="Enter email" #email="ngModel">
+                                 <mat-error *ngIf="email.hasError('required')" >Enter Email</mat-error>
+                                 <mat-error *ngIf="email.hasError('email_id')" >Enter valid Email Address</mat-error>                    
+                              </mat-form-field> <!--<input class="form-control" type="text" [(ngModel)]='email_id' required name="email_id" id="email_id">--></div>
+                        </div>
+        
+                        
+                        <div class="form-group text-center m-t-40">
+                            <div class="col-xs-12"> <button type="submit" class="btn btn-primary btn-block btn-lg waves-effect waves-light" [disabled]="!loginform.form.valid" >Send Email</button></div>
+                        </div>
+
+                       
+                    </form>
+                </div>
+            </div>
+        </div>

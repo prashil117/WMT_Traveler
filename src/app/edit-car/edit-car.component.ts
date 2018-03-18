@@ -58,6 +58,7 @@ img:string="";
       this.img=data[0].car_img;
       this.rate=data[0].car_rate;
       this.desc=data[0].car_details;
+      this.category=data[0].car_category;
 
 
     }

@@ -54,6 +54,11 @@ export class DriverComponent implements OnInit {
     );
   }
 
+  onNavigate()
+  {
+    this._router.navigate(['/Adddriver']);
+  }
+
   editDriver(item){
     
      this._router.navigate(['/Editdriver',item.driver_id]);
