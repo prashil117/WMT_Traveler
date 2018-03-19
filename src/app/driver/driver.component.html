@@ -65,8 +65,9 @@
                             <div class="panel panel-primary">
                                 <div class="panel-body">
                                    <h4 align="right" class="m-b-30 m-t-0"><button (click)="onNavigate()" style="border-radius:6px;" class=" form-group btn-danger btn-lg ion-plus-circled "> Add</button><br>
-                                        <input class="form-control" type=text name="search" placeholder="search" [(ngModel)]="txtsearch" (keyup)="onSearch()">
+                                       
                                     </h4>
+                                    <button (click)="deleteAll()" class=" ion ion-trash-b btn btn-danger"><span> Delete All </span></button>
                                  <!--   <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
 
@@ -129,7 +130,11 @@
                                                 </mat-form-field>
                                               </div>
                                     <mat-table #table [dataSource]="dataSource" matSort>
-                    
+                                        
+                                        <ng-container matColumnDef="check">
+                                            <mat-header-cell *matHeaderCellDef mat-sort-header> Check </mat-header-cell>
+                                            <mat-cell *matCellDef="let element"> <input type="checkbox" (change)="checkChange(element)" name="usercheck"> </mat-cell>
+                                          </ng-container>
 
                                       <ng-container matColumnDef="driver_name">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>

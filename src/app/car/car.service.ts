@@ -7,7 +7,7 @@ import { Traveler } from '../../traveller';
 export class CarService {
   public url: string = "http://localhost:3000/cars/";
   public url1: string ="http://localhost:3000/caremail/";
-  public url2:string="http://localhost:3000/deletallcar/";
+  public url2:string="http://localhost:3000/car_deleteall/";
 
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";

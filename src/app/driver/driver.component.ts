@@ -20,7 +20,7 @@ export class DriverComponent implements OnInit {
   public tid:number;
   public delarr:Driver[]=[];
   txtsearch:string="";
-  displayedColumns = ['driver_name', 'driver_license_no','Mobile_no','driver_action'];
+  displayedColumns = ['check','driver_name', 'driver_license_no','Mobile_no','driver_action'];
   dataSource: MatTableDataSource<Driver>;
   constructor(public data1:DriverService,public _router:Router,public data:TravellerService) { }
 
