@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { DriverService } from './driver.service';
 import { Driver } from "./driverc";
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
   styleUrls: ['./driver.component.css']
 })
 export class DriverComponent implements OnInit {
+  @ViewChild(MatPaginator)paginator:MatPaginator;
   public drivers:Driver[]=[];
   public drivers1:Driver[]=[];
   email:string=localStorage.getItem('Email');
@@ -39,6 +40,7 @@ export class DriverComponent implements OnInit {
         this.drivers=data;
         this.drivers1=data;
         this.dataSource = new MatTableDataSource(this.drivers);
+        this.dataSource.paginator=this.paginator;
         console.log(this.drivers);
       }
     );

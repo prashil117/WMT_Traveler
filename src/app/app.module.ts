@@ -26,6 +26,9 @@ import { EdittravellerprofileComponent } from './edittravellerprofile/edittravel
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTableModule,MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule } from '@angular/material';
+import { OrderComponent } from './order/order.component';
+import { OrderService } from './order/order.service';
+import { EditorderComponent } from './editorder/editorder.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTabl
     EdittravellerComponent,
     EdittravellerprofileComponent,
     ResetpasswordComponent,
+    OrderComponent,
+    EditorderComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,7 @@ import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTabl
     MatPaginatorModule,MatSortModule,MatIconModule,MatDatepickerModule,MatRadioModule,MatNativeDateModule,
     routingArray
   ],
-  providers: [LoginService,DriverService,CarService,TravellerService,EmailService],
+  providers: [LoginService,DriverService,CarService,TravellerService,EmailService,OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

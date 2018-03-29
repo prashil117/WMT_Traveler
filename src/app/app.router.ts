@@ -11,6 +11,8 @@ import { AdddriverComponent } from './adddriver/adddriver.component';
 import { EdittravellerComponent } from './edittraveller/edittraveller.component';
 import { EdittravellerprofileComponent } from './edittravellerprofile/edittravellerprofile.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { OrderComponent } from './order/order.component';
+import { EditorderComponent } from './editorder/editorder.component';
 
 
 const routing:Routes = [
@@ -28,5 +30,7 @@ const routing:Routes = [
     {path:'Edittraveller',component:EdittravellerComponent},
     {path:'Edittravellerprofile',component:EdittravellerprofileComponent},
     {path:'Resetpassword',component:ResetpasswordComponent},
+    {path:'Order',component:OrderComponent},
+    {path:'Editorder/:id',component:EditorderComponent},
 ]
 export const routingArray=RouterModule.forRoot(routing);
