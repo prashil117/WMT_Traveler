@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { Driver } from '../driver/driverc';
@@ -14,15 +14,17 @@ import { car } from '../car/carc';
   styleUrls: ['./edit-car.component.css']
 })
 export class EditCarComponent implements OnInit {
+  @ViewChild('fileInput') fileInput: ElementRef;
+  selectedFile: File = null;
   public traveller: Traveler[] = [];
   
 
   email:string=localStorage.getItem('Email');
   public tid: number;
   public _subscription:Subscription;
-  id:number;
+  id:any;
   name:string="";
-  rate:number;
+  rate:any;
   color:string="";
   category:string="";
   type:string="";
@@ -67,13 +69,53 @@ img:string="";
 
 
   }
+
+  onFileSelected(value) {
+    this.selectedFile = <File>value.target.files[0];
+  
+    console.log(value);
+  }
+  
+  getPicture() {
+    this.fileInput.nativeElement.click();
+  }
   onUpdate(){
-    let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid)
+  /*  let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid)
     this.data.editCar(this.id,Car).subscribe(
       ()=>{
         this._router.navigate(['/Car']);
       }
-    );
+    );*/
+
+    if (this.selectedFile == null) {
+      let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid)
+      this.data.editCar(this.id, car).subscribe(
+        () => {
+          this._router.navigate(['/Car']);
+        }
+      );
+    }
+    else {
+      const fd=new FormData();
+      fd.append('car_id',this.id);
+      fd.append('car_name',this.name);
+      fd.append('car_color',this.color);
+      fd.append('car_type',this.type);
+      fd.append('image',this.selectedFile,this.selectedFile.name);
+      fd.append('car_rate',this.rate);
+      fd.append('car_details',this.desc);
+      fd.append('car_category',this.category);
+      fd.append('fk_traveller_id',this.tid.toString());
+  
+      console.log(fd);
+  
+      this.data.editCarimg(fd).subscribe(
+        (data: any) => {
+          console.log(data);
+          this._router.navigate(['/Car']);
+        }
+      );
+    }
   }
 
 }

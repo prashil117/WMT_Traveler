@@ -14,6 +14,7 @@ export class EdittravellerComponent implements OnInit {
   name1:string="";
   address1:string="";
   city1:string=""; 
+  img:string;
   public traveller: Traveler[] = [];
   email:string=localStorage.getItem('Email');
  
@@ -27,6 +28,7 @@ export class EdittravellerComponent implements OnInit {
         this.name1 = this.traveller[0].traveller_name;
         this.address1 = this.traveller[0].traveller_address;
         this.city1 = this.traveller[0].city;
+        this.img=this.traveller[0].traveller_img;
       }
     );
 

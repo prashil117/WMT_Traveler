@@ -8,6 +8,7 @@ export class CarService {
   public url: string = "http://localhost:3000/cars/";
   public url1: string = "http://localhost:3000/caremail/";
   public url2: string = "http://localhost:3000/car_deleteall/";
+  public url3: string = "http://localhost:3000/carimgu/";
   
 
   constructor(public _http: HttpClient) { }
@@ -35,6 +36,11 @@ export class CarService {
     let body = JSON.stringify(item);
     return this._http.put(this.url + id, body, { headers: new HttpHeaders().set(this.content, this.header) });
 
+  }
+
+  editCarimg(item: FormData) {
+    //  let body=JSON.stringify(hotel);
+    return this._http.put(this.url3, item);
   }
 
   getCarBynoId(id) {
