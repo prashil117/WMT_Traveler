@@ -30,11 +30,12 @@ export class EditCarComponent implements OnInit {
   type:string="";
   desc:string="";
 img:string="";
+avaibility:string;
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravellerService,public data:CarService) { }
 
   ngOnInit() {
 
-
+console.log(this.avaibility);
     this._data.getTravellerByEmail(this.email).subscribe(
       (data: Traveler[]) => {
         this.traveller = data;
@@ -49,7 +50,7 @@ img:string="";
          
       }
   );
-
+console.log(this.avaibility);
 
   this.data.getCarBynoId(this.id).subscribe(
     (data:car[])=>{
@@ -61,6 +62,7 @@ img:string="";
       this.rate=data[0].car_rate;
       this.desc=data[0].car_details;
       this.category=data[0].car_category;
+      this.avaibility=data[0].car_status;
 
 
     }
@@ -88,7 +90,7 @@ img:string="";
     );*/
 
     if (this.selectedFile == null) {
-      let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid)
+      let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid,this.avaibility)
       this.data.editCar(this.id, car).subscribe(
         () => {
           this._router.navigate(['/Car']);
@@ -106,6 +108,7 @@ img:string="";
       fd.append('car_details',this.desc);
       fd.append('car_category',this.category);
       fd.append('fk_traveller_id',this.tid.toString());
+      fd.append('car_status',this.avaibility);
   
       console.log(fd);
   

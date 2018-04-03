@@ -22,7 +22,7 @@ export class CarComponent implements OnInit {
   public tid:number;
   txtsearch:string;
   email:string=localStorage.getItem('Email');
-  displayedColumns = ['check','car_img','car_name', 'car_color','car_type','car_rate','car_category','car_action'];
+  displayedColumns = ['check','car_img','car_name', 'car_color','car_rate','car_category','car_status','car_action'];
 dataSource: MatTableDataSource<car>;
 
   constructor(public data:CarService,public _router:Router,public data1:TravellerService) { }

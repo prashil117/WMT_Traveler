@@ -25,6 +25,7 @@ export class AddCarComponent implements OnInit {
   public car: car[] = [];
   public traveller: Traveler[] = [];
   public tid: number;
+  avaibility:string;
   email: string = localStorage.getItem('Email');
   selectedFile:File=null;
 
@@ -150,6 +151,7 @@ export class AddCarComponent implements OnInit {
  fd.append('car_details',this.desc);
  fd.append('car_category',this.category);
  fd.append('fk_traveller_id',this.tid.toString());
+ fd.append('car_status',this.avaibility);
     console.log(fd);
 
 
@@ -158,6 +160,7 @@ export class AddCarComponent implements OnInit {
         console.log(data);
         console.log(this.type);
         console.log(this.category);
+        console.log(this.avaibility);
         this._router.navigate(['/Car']);
       },
       function (err) {

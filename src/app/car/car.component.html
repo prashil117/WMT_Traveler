@@ -166,20 +166,25 @@
                                         <mat-cell *matCellDef="let element"> {{element.car_color}}  </mat-cell>
                                       </ng-container>
 
-                                      <ng-container matColumnDef="car_type">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.car_type}} </mat-cell>
-                                      </ng-container>
+                                    
                                     <!-- Status -->
                                       <ng-container matColumnDef="car_rate">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header> Rate </mat-header-cell>
                                         <mat-cell *matCellDef="let element"> {{element.car_rate}} </mat-cell>
                                       </ng-container>
+                                      
 
                                       <ng-container matColumnDef="car_category">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header> Category </mat-header-cell>
                                         <mat-cell *matCellDef="let element"> {{element.car_category}} </mat-cell>
                                       </ng-container>
+
+                                      <ng-container matColumnDef="car_status">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.car_status}} </mat-cell>
+                                      </ng-container>
+
+                                    
                                                                               
                                       <ng-container matColumnDef="car_action">
                                             <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
