@@ -30,12 +30,11 @@ export class EditCarComponent implements OnInit {
   type:string="";
   desc:string="";
 img:string="";
-avaibility:string;
+avaibility:string="";
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravellerService,public data:CarService) { }
 
   ngOnInit() {
 
-console.log(this.avaibility);
     this._data.getTravellerByEmail(this.email).subscribe(
       (data: Traveler[]) => {
         this.traveller = data;
@@ -90,9 +89,10 @@ console.log(this.avaibility);
     );*/
 
     if (this.selectedFile == null) {
-      let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid,this.avaibility)
-      this.data.editCar(this.id, car).subscribe(
-        () => {
+      let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid,this.avaibility);
+      this.data.editCar(this.id, Car).subscribe(
+        (data:car[]) => {
+          console.log(data);
           this._router.navigate(['/Car']);
         }
       );
