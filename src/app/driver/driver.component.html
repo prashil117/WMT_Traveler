@@ -150,6 +150,12 @@
                                         <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile No </mat-header-cell>
                                         <mat-cell *matCellDef="let element"> {{element.Mobile_no}} </mat-cell>
                                       </ng-container>
+
+                                      <ng-container matColumnDef="driver_status">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.driver_status}} </mat-cell>
+                                      </ng-container>
+
                                                                               
                                       <ng-container matColumnDef="driver_action">
                                             <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>

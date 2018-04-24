@@ -19,6 +19,7 @@ export class EditdriverComponent implements OnInit {
   public mob:string="";
   public tid: number;
   public traveller: Traveler[] = [];
+  avaibility:string="";
   email:string=localStorage.getItem('Email');
   
   constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravellerService,public data:DriverService) { }
@@ -45,12 +46,13 @@ export class EditdriverComponent implements OnInit {
       this.name=data[0].driver_name;
       this.mob=data[0].Mobile_no;
       this.no=data[0].driver_license_no;
+      this.avaibility=data[0].driver_status;
     }
   );
   }
 
   onUpdate(){
-    let driver=new Driver(null,this.name,this.no,this.mob,this.tid);
+    let driver=new Driver(null,this.name,this.no,this.mob,this.avaibility,this.tid);
     this.data.editDriver(this.id,driver).subscribe(
       ()=>{
         this._router.navigate(['/Driver']);

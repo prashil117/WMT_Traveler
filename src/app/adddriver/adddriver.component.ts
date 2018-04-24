@@ -17,6 +17,7 @@ export class AdddriverComponent implements OnInit {
   public driver: Driver[] = [];
   public traveller: Traveler[] = [];
   public tid: number;
+  avaibility:string;
   email: string = localStorage.getItem('Email');
   constructor(public data: DriverService, public _router: Router, public data1: TravellerService) { }
 
@@ -37,18 +38,20 @@ export class AdddriverComponent implements OnInit {
     this.name=addform.value.driver_name;
     this.no=addform.value.driver_license_no;
     this.mob=addform.value.Mobile_no;
-        this.data.addDriver(new Driver(null,this.name, this.no, this.mob,this.tid)).subscribe(
-          (data: Driver[]) => {
-            console.log(data);
-            this._router.navigate(['/Driver']);
-          },
-          function (err) {
-            alert(err);
-          },
-          function () {
+    this.avaibility=addform.value.driver_status;
+    console.log(this.avaibility);
+        // this.data.addDriver(new Driver(null,this.name, this.no, this.mob,this.avaibility,this.tid)).subscribe(
+        //   (data: Driver[]) => {
+        //     console.log(data);
+        //     this._router.navigate(['/Driver']);
+        //   },
+        //   function (err) {
+        //     alert(err);
+        //   },
+        //   function () {
     
-          }
-        );
+        //   }
+        // );
       }
 
 

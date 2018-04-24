@@ -8,6 +8,7 @@ export class DriverService {
   public url: string = "http://localhost:3000/drivers/";
   public url1: string ="http://localhost:3000/driveremail/";
   public url2: string ="http://localhost:3000/driverall/";
+  public url3:string="http://localhost:3000/driverstatus/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";
@@ -49,6 +50,13 @@ export class DriverService {
   {
     let body = JSON.stringify(item);
     return this._http.post(this.url2, body, { headers: new HttpHeaders().set(this.content, this.header) });
+  }
+
+  changedriver(id)
+  {
+    
+    return this._http.put(this.url3 + id,  { headers: new HttpHeaders().set(this.content, this.header) });
+
   }
 
 }
