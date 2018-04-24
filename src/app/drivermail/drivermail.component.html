@@ -5,8 +5,8 @@
             <div class="col-md-12">
                 <div class="box-inn-sp">
                     <div class="inn-title">
-                        <h4>Car Details</h4>
-                        <a routerLink="/Addcar"><span class="label label-success">Add</span></a>
+                        <h4>Driver Details</h4>
+                        <a routerLink="/Adddriver"><span class="label label-success">Add</span></a>
                         <!-- Dropdown Structure -->
 
                     </div>
@@ -17,48 +17,35 @@
                                 <thead>
                                     <tr>
                                         <th>check</th>
-                                        <th>Image</th>
-                                        <th>car</th>
-                                        <th>color</th>
-                                        <th>type</th>
-                                        <th>Rate</th>
-                                        <th>image</th>
-                                        <th>Details</th>
-                                        <th>Category</th>
-                                        <th>delete</th>
-                                        <th>edit</th>
-
+                                        <th>Name</th>
+                                        <th>License No</th>
+                                        <th>Mobile_no</th>
+                                        <th>Delete</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of car">
+                                    <tr *ngFor="let item of drivers">
                                         <td>
-                                            <input type="checkbox" id="ch2-1" />
+                                            <input type="checkbox" id="ch2-1" name="drivercheck" (change)="checkChange(item)" />
                                             <label for="ch2-1"></label>
                                         </td>
-                                        <td><span class="list-img"><img src="./assets/images/user/1.png" alt=""></span>
-                                        </td>
-                                        <td><a href="#"><span class="list-enq-name">{{item.car_name}}</span><span class="list-enq-city"></span></a>
-                                        </td>
-                                        <td>{{item.car_color}}</td>
-                                        <td>{{item.car_type}}</td>
-                                        <td>{{item.car_rate}}</td>
-                                        <td><img src="http://localhost:3000/{{item.car_img}}"></td>
-                                        <td>
-                                            <span class="label label-primary">{{item.car_details}}</span>
-                                        </td>
-                                        <td>
-                                            <span class="label label-info">{{item.car_category}}</span>
-                                        </td>
-                                        <td>
-                                            <span class="label label-danger" (click)="onCarDelete(item)">Delete</span>
-                                        </td>
-                                        <td>
-                                            <a (click)="editCar(item)"><span class="label label-success">Edit</span></a>
-                                        </td>
 
+                                        <td><a href="#"><span class="list-enq-name">{{item.driver_name}}</span></a>
+                                        </td>
+                                        <td>
+                                            <span class="label label-primary">{{item.driver_license_no}}</span>
+                                        </td>
+                                        <td><span class="list-enq-name">{{item.Mobile_no}}</span>
+                                            <td>
+                                                <a (click)="onDriverDelete(item)"><span class="label label-danger">Delete</span></a>
+                                            </td>
+                                            <td>
+                                                <a (click)="editTraveller(item)"> <span class="label label-success">Edit</span></a>
+                                            </td>
                                     </tr>
                                 </tbody>
+                                <button (click)="deleteAll()" class=" ion ion-trash-b btn btn-danger"><span> Delete All </span></button>
                             </table>
                         </div>
                     </div>-->
@@ -67,19 +54,19 @@
                             <div class="content">
                                 <div class="">
                                     <div class="page-header-title">
-                                        <h4 class="page-title">Car</h4>
+                                        <h4 class="page-title">Driver</h4>
                                     </div>
                                 </div>
                                 <div class="page-content-wrapper ">
                                     <div class="container">
-                     
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-primary">
                                 <div class="panel-body">
-                                    <!-- <h4 align="right" class="m-b-30 m-t-0"><button (click)="onNavigate()" style="border-radius:6px;" class=" form-group btn-danger btn-lg ion-plus-circled "> Add</button><br>
+                                   <h4 align="right" class="m-b-30 m-t-0"><button (click)="onNavigate()" style="border-radius:6px;" class=" form-group btn-danger btn-lg ion-plus-circled "> Add</button><br>
                                        
-                                    </h4> -->
+                                    </h4>
                                     <button (click)="deleteAll()" class=" ion ion-trash-b btn btn-danger"><span> Delete All </span></button>
                                  <!--   <div class="row">
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -149,60 +136,26 @@
                                             <mat-cell *matCellDef="let element"> <input type="checkbox" (change)="checkChange(element)" name="usercheck"> </mat-cell>
                                           </ng-container>
 
-                                          <!-- Title -->
-                                      <ng-container matColumnDef="fk_user_id">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> User </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.fk_user_id}}</mat-cell>
-                                      </ng-container>
-                                    <!-- Status -->
-
-                                      <ng-container matColumnDef="source">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.source}} </mat-cell>
+                                      <ng-container matColumnDef="driver_name">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.driver_name}} </mat-cell>
                                       </ng-container>
 
-                                      <ng-container matColumnDef="destination">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Destination </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.destination}} </mat-cell>
+                                        <ng-container matColumnDef="driver_license_no">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> License  No </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.driver_license_no}}  </mat-cell>
                                       </ng-container>
 
-                                        <ng-container matColumnDef="Booking_date">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Booking date </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.Booking_date| date}}  </mat-cell>
-                                      </ng-container>
-
-                                      <ng-container matColumnDef="checking_date">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Checkin Date </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.checking_date | date }} </mat-cell>
-                                      </ng-container>
-                                    <!-- Status -->
-                                      <ng-container matColumnDef="checkout_date">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header>Checkout Date </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.checkout_date | date}} </mat-cell>
-                                      </ng-container>
-
-                                      <ng-container matColumnDef="amount">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
-                                      </ng-container>
-
-                                      <ng-container matColumnDef="car_id">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Car ID </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.fk_car_id}} </mat-cell>
-                                      </ng-container>
-
-                                      <ng-container matColumnDef="car_name">
-                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Car </mat-header-cell>
-                                        <mat-cell *matCellDef="let element"> {{element.fk_car_name}} </mat-cell>
+                                      <ng-container matColumnDef="Mobile_no">
+                                        <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile No </mat-header-cell>
+                                        <mat-cell *matCellDef="let element"> {{element.Mobile_no}} </mat-cell>
                                       </ng-container>
                                                                               
-                                      <ng-container matColumnDef="car_action">
+                                      <ng-container matColumnDef="driver_action">
                                             <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
-                                            <mat-cell *matCellDef="let element"> <button (click)="onOrderDelete(element)" color="warn" mat-icon-button>
+                                            <mat-cell *matCellDef="let element"> <button (click)="onDriverDelete(element)" color="warn" mat-icon-button>
                                                 <mat-icon>delete</mat-icon>
-                                              </button>  <button (click)="editOrder(element)" color="primary" mat-icon-button>
-                                                    <mat-icon>create</mat-icon>
-                                                  </button> <button (click)="sendDriver(element)" color="primary" mat-icon-button>
+                                              </button>  <button (click)="sendDriver(element)" color="primary" mat-icon-button>
                                                     <mat-icon>create</mat-icon>
                                                   </button> </mat-cell>
                                         </ng-container>
@@ -219,9 +172,9 @@
                         </div>
                     </div>
                 </div>
-            
+
                 </div>
             </div>
         </div>
-    
+    <!-- </div> -->
 </div>

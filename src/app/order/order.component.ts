@@ -123,7 +123,12 @@ export class OrderComponent implements OnInit {
            {
            });
        }
-     } 
+     }
+     
+     sendDriver(item){
+      
+       this._router.navigate(['/Drivermail',item.order_id]);
+     }
 
 }
 

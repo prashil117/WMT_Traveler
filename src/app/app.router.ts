@@ -13,6 +13,7 @@ import { EdittravellerprofileComponent } from './edittravellerprofile/edittravel
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { OrderComponent } from './order/order.component';
 import { EditorderComponent } from './editorder/editorder.component';
+import { DrivermailComponent } from './drivermail/drivermail.component';
 
 
 const routing:Routes = [
@@ -32,5 +33,6 @@ const routing:Routes = [
     {path:'Resetpassword',component:ResetpasswordComponent},
     {path:'Order',component:OrderComponent},
     {path:'Editorder/:id',component:EditorderComponent},
+    {path:'Drivermail/:id',component:DrivermailComponent},
 ]
 export const routingArray=RouterModule.forRoot(routing);

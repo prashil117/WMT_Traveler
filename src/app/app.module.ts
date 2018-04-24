@@ -29,6 +29,7 @@ import { MatInputModule,MatFormFieldModule,MatButtonModule,MatCardModule,MatTabl
 import { OrderComponent } from './order/order.component';
 import { OrderService } from './order/order.service';
 import { EditorderComponent } from './editorder/editorder.component';
+import { DrivermailComponent } from './drivermail/drivermail.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { EditorderComponent } from './editorder/editorder.component';
     ResetpasswordComponent,
     OrderComponent,
     EditorderComponent,
+    DrivermailComponent,
   ],
   imports: [
     BrowserModule,
