@@ -98,6 +98,7 @@ console.log(this.avaibility);
       );
     }
     else {
+      //hrllo
       const fd=new FormData();
       fd.append('car_id',this.id);
       fd.append('car_name',this.name);
