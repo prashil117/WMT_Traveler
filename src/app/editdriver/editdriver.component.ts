@@ -47,6 +47,8 @@ export class EditdriverComponent implements OnInit {
       this.mob=data[0].Mobile_no;
       this.no=data[0].driver_license_no;
       this.avaibility=data[0].driver_status;
+      console.log(this.no);
+      console.log(this.avaibility);
     }
   );
   }

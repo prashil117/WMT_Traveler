@@ -9,6 +9,7 @@ export class DriverService {
   public url1: string ="http://localhost:3000/driveremail/";
   public url2: string ="http://localhost:3000/driverall/";
   public url3:string="http://localhost:3000/driverstatus/";
+  public url4:string="http://localhost:3000/travellerdriver/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";
@@ -19,6 +20,11 @@ export class DriverService {
 
     return this._http.get<Driver[]>(this.url1 + email);
   }
+
+  getDriversByTraveller(id) {
+    
+        return this._http.get<Driver[]>(this.url4 + id);
+      }
 
   deleteDriver(id: number) {
     return this._http.delete(this.url + id, { headers: new HttpHeaders().set(this.content, this.header) });
