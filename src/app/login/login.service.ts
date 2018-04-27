@@ -4,7 +4,7 @@ import { Traveler } from '../../traveller';
 
 @Injectable()
 export class LoginService {
-  public url:string="http://localhost:3000/traveller_login/";
+  public url:string="https://wishmytrip.herokuapp.com/traveller_login/";
   constructor(public _http:HttpClient) { }
   login(item)
   {

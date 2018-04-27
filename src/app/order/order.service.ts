@@ -9,9 +9,9 @@ export class OrderService {
   content: string = "Content-Type";
   header: string = "application/json";
   email: string = localStorage.getItem('Email');
-  public url: string = "http://localhost:3000/travellerorder/";
-  public url1: string = "http://localhost:3000/orderdeleteall/";
-  public url2: string = "http://localhost:3000/orderid/";
+  public url: string = "https://wishmytrip.herokuapp.com/travellerorder/";
+  public url1: string = "https://wishmytrip.herokuapp.com/orderdeleteall/";
+  public url2: string = "https://wishmytrip.herokuapp.com/orderid/";
   constructor(public _http: HttpClient) { }
 
   getOrderByTraveller(id) {

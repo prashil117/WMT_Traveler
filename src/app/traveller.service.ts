@@ -4,10 +4,10 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class TravellerService {
-  public url: string = "http://localhost:3000/temail/";
-  public url1: string = "http://localhost:3000/travellers/";
-  public url2:string="http://localhost:3000/travellerpassword/";
-  public url3: string = "http://localhost:3000/travellerimgu/";
+  public url: string = "https://wishmytrip.herokuapp.com/temail/";
+  public url1: string = "https://wishmytrip.herokuapp.com/travellers/";
+  public url2:string="https://wishmytrip.herokuapp.com/travellerpassword/";
+  public url3: string = "https://wishmytrip.herokuapp.com/travellerimgu/";
   content:string="Content-Type";
   header:string="application/json";
 

@@ -5,10 +5,10 @@ import { Traveler } from '../../traveller';
 
 @Injectable()
 export class CarService {
-  public url: string = "http://localhost:3000/cars/";
-  public url1: string = "http://localhost:3000/caremail/";
-  public url2: string = "http://localhost:3000/car_deleteall/";
-  public url3: string = "http://localhost:3000/carimgu/";
+  public url: string = "https://wishmytrip.herokuapp.com/cars/";
+  public url1: string = "https://wishmytrip.herokuapp.com/caremail/";
+  public url2: string = "https://wishmytrip.herokuapp.com/car_deleteall/";
+  public url3: string = "https://wishmytrip.herokuapp.com/carimgu/";
   
 
   constructor(public _http: HttpClient) { }

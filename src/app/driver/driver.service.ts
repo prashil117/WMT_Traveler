@@ -5,11 +5,11 @@ import { Traveler } from '../../traveller';
 
 @Injectable()
 export class DriverService {
-  public url: string = "http://localhost:3000/drivers/";
-  public url1: string ="http://localhost:3000/driveremail/";
-  public url2: string ="http://localhost:3000/driverall/";
-  public url3:string="http://localhost:3000/driverstatus/";
-  public url4:string="http://localhost:3000/travellerdriver/";
+  public url: string = "https://wishmytrip.herokuapp.com/drivers/";
+  public url1: string ="https://wishmytrip.herokuapp.com/driveremail/";
+  public url2: string ="https://wishmytrip.herokuapp.com/driverall/";
+  public url3:string="https://wishmytrip.herokuapp.com/driverstatus/";
+  public url4:string="https://wishmytrip.herokuapp.com/travellerdriver/";
   constructor(public _http: HttpClient) { }
   content: string = "Content-Type";
   header: string = "application/json";
