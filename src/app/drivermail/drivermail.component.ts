@@ -10,7 +10,8 @@ import { OrderService } from '../order/order.service';
 import { Order } from '../order/orderc';
 import { EmailService } from '../forgot/email.service';
 import { Forget } from '../forgot/forgetc';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material'
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-drivermail',
@@ -37,7 +38,7 @@ export class DrivermailComponent implements OnInit {
   dataSource: MatTableDataSource<Driver>;
 
   public _subscription: Subscription;
-  constructor(public _router: Router, public _activatedRoute: ActivatedRoute, public data: TravellerService, public data1: DriverService, public data2: OrderService, public data3: EmailService) { }
+  constructor(public _router: Router, public _activatedRoute: ActivatedRoute, public data: TravellerService, public data1: DriverService, public data2: OrderService, public data3: EmailService,public ngProgress: NgProgress) { }
   id: number;
   ngOnInit() {
 
@@ -81,6 +82,7 @@ export class DrivermailComponent implements OnInit {
   }
 
   sendDriver(item) {
+    this.ngProgress.start();
     this.name = item.driver_name;
     this.no = item.driver_license_no;
     this.id=item.driver_id;
@@ -89,6 +91,7 @@ export class DrivermailComponent implements OnInit {
       (data: any) => {
 
         console.log("msg sent");
+        this.ngProgress.done();
       });
 
       this.data1.changedriver(this.id).subscribe(

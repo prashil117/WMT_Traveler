@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { TravellerService } from '../traveller.service';
 import { Traveler } from '../../traveller';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-edittravellerprofile',
@@ -21,7 +22,7 @@ export class EdittravellerprofileComponent implements OnInit {
   public traveller: Traveler[] = [];
   email:string=localStorage.getItem('Email');
  
-  constructor(public _router:Router,public _data:TravellerService) { }
+  constructor(public _router:Router,public _data:TravellerService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
 
@@ -57,14 +58,17 @@ export class EdittravellerprofileComponent implements OnInit {
     );*/
 
     if (this.selectedFile == null) {
+      this.ngProgress.start();
       let traveler=new Traveler(null,this.name1,'','',this.address1,this.img,this.city1);
       this._data.editTraveler(this.tid, traveler).subscribe(
         () => {
           this._router.navigate(['/Edittraveller']);
+          this.ngProgress.done();
         }
       );
     }
     else {
+      this.ngProgress.start();
       const fd=new FormData();
           fd.append('traveller_id',this.tid);
           fd.append('traveller_name',this.name1);
@@ -79,6 +83,7 @@ export class EdittravellerprofileComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this._router.navigate(['/Edittraveller']);
+          this.ngProgress.done();
         }
       );
   }

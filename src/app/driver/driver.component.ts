@@ -4,7 +4,8 @@ import { Driver } from "./driverc";
 import { Router } from '@angular/router';
 import {Traveler  } from '../../traveller';
 import {  TravellerService} from '../traveller.service';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { NgProgress } from 'ngx-progressbar';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class DriverComponent implements OnInit {
   txtsearch:string="";
   displayedColumns = ['check','driver_name', 'driver_license_no','Mobile_no','driver_status','driver_action'];
   dataSource: MatTableDataSource<Driver>;
-  constructor(public data1:DriverService,public _router:Router,public data:TravellerService) { }
+  constructor(public data1:DriverService,public _router:Router,public data:TravellerService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
 
@@ -48,10 +49,11 @@ export class DriverComponent implements OnInit {
 
   onDriverDelete(item)
   {
-  
+    this.ngProgress.start();
     this.data1.deleteDriver(item.driver_id).subscribe(
       (data:any)=>{
         this.drivers.splice(this.drivers.indexOf(item),1);
+        this.ngProgress.done();
       }
     );
   }
@@ -94,13 +96,14 @@ export class DriverComponent implements OnInit {
          
          if(confirm("Are you sure you want to delete"))
          {
-           
+           this.ngProgress.start();
            this.data1.deleteAllDrivers(this.delarr).subscribe(
              (data:any)=>{
                for(this.i=0;this.i<this.delarr.length;this.i++)
                {
                  this.drivers.splice(this.drivers.indexOf(this.delarr[this.i]),1);
                  console.log("DONE");
+                 this.ngProgress.done();
                }
                this.drivers1=[];
              },

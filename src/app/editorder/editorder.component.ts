@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { OrderService } from '../order/order.service';
 import { Order } from '../order/orderc';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-editorder',
@@ -25,7 +26,7 @@ export class EditorderComponent implements OnInit {
   fk_car_name1:string="";
   fk_driver_id1:number;
   bookingstatus1:string="";
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public data:OrderService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public data:OrderService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
 
@@ -57,10 +58,12 @@ export class EditorderComponent implements OnInit {
   }
 
   onUpdate(){
+    this.ngProgress.start();
     let Car=new Order(null,this.userid,this.source1,this.destination1,this.bookingdate1,this.checkingdate1,this.checkoutdate1,this.amount,this.fk_car_id1,this.fk_car_name1,this.fk_driver_id1,this.fk_traveller_id1,this.bookingstatus1)
     this.data.editOrder(this.id,Car).subscribe(
       ()=>{
         this._router.navigate(['/Order']);
+        this.ngProgress.done();
       }
     );
   }

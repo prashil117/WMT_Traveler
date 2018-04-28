@@ -30,6 +30,7 @@ import { OrderComponent } from './order/order.component';
 import { OrderService } from './order/order.service';
 import { EditorderComponent } from './editorder/editorder.component';
 import { DrivermailComponent } from './drivermail/drivermail.component';
+import { NgProgressModule } from 'ngx-progressbar';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DrivermailComponent } from './drivermail/drivermail.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgProgressModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,

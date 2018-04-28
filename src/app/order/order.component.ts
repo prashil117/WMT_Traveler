@@ -7,6 +7,7 @@ import {  TravellerService} from '../traveller.service';
 import {Traveler  } from '../../traveller';
 import { OrderService } from '../order/order.service';
 import { Order } from '../order/orderc';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-order',
@@ -25,7 +26,7 @@ export class OrderComponent implements OnInit {
   email:string=localStorage.getItem('Email');
   displayedColumns = ['check','fk_user_id','source','destination', 'Booking_date','checking_date','checkout_date','amount','car_id','car_name','car_action'];
   dataSource: MatTableDataSource<Order>;
-  constructor(public data:CarService,public _router:Router,public data1:TravellerService,public data_1:OrderService) { }
+  constructor(public data:CarService,public _router:Router,public data1:TravellerService,public data_1:OrderService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
     this.data1.getTravellerByEmail(this.email).subscribe(
@@ -70,10 +71,11 @@ export class OrderComponent implements OnInit {
 
   onOrderDelete(item)
   {
-  
+    this.ngProgress.start();
     this.data_1.deleteOrder(item.order_id).subscribe(
       (data:any)=>{
         this.car.splice(this.car.indexOf(item),1);
+        this.ngProgress.done();
       }
     );
   }
@@ -105,13 +107,14 @@ export class OrderComponent implements OnInit {
        
        if(confirm("Are you sure you want to delete"))
        {
-         
+        this.ngProgress.start();
          this.data_1.deleteAllOrder(this.delarr).subscribe(
            (data:any)=>{
              for(this.i=0;this.i<this.delarr.length;this.i++)
              {
                this.car.splice(this.order.indexOf(this.delarr[this.i]),1);
                console.log("DONE");
+               this.ngProgress.done();
              }
              this.car1=[];
            },

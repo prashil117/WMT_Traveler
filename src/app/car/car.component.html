@@ -155,7 +155,7 @@
                                         <mat-cell *matCellDef="let element"> <img class="imgc" src="https://wishmytrip.herokuapp.com/images/car/{{element.car_img}}" width=50 height=50> </mat-cell>
                                       </ng-container>
                                     <!-- Status -->
-
+                                    <ng-progress></ng-progress>
                                       <ng-container matColumnDef="car_name">
                                         <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
                                         <mat-cell *matCellDef="let element"> {{element.car_name}} </mat-cell>

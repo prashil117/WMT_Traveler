@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { TravellerService } from '../traveller.service';
 import { Traveler } from '../../traveller';
+import { NgProgress } from 'ngx-progressbar';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ResetpasswordComponent implements OnInit {
   password:string;
   public traveller: Traveler[] = [];
   email:string=localStorage.getItem('Email');
-  constructor(public _router:Router,public _data:TravellerService) { }
+  constructor(public _router:Router,public _data:TravellerService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
 
@@ -34,6 +35,7 @@ export class ResetpasswordComponent implements OnInit {
 
 
   Changepassword(){
+    this.ngProgress.start();
     if(this.pass1==this.password)
     {
       if(this.pass==this.pass2)
@@ -42,6 +44,7 @@ export class ResetpasswordComponent implements OnInit {
     this._data.Resetpassword(this.email,traveler).subscribe(
       ()=>{
         this._router.navigate(['/Edittraveller']);
+        this.ngProgress.done();
       }
     );
   }
@@ -49,6 +52,7 @@ export class ResetpasswordComponent implements OnInit {
   else
   {
     alert("Please enter valid password");
+    this.ngProgress.done();
   }
   
 }

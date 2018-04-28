@@ -6,6 +6,7 @@ import { Traveler } from '../../traveller';
 import { DriverService } from '../driver/driver.service';
 import { TravellerService } from '../traveller.service';
 import {  CarService} from '../car/car.service';
+import { NgProgress } from 'ngx-progressbar';
 import { car } from '../car/carc';
 
 @Component({
@@ -31,7 +32,7 @@ export class EditCarComponent implements OnInit {
   desc:string="";
 img:string="";
 avaibility:string="";
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravellerService,public data:CarService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravellerService,public data:CarService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
 
@@ -87,13 +88,14 @@ console.log(this.avaibility);
         this._router.navigate(['/Car']);
       }
     );*/
-
+    this.ngProgress.start();
     if (this.selectedFile == null) {
       let Car=new car(this.name,this.color,this.type,'',this.rate,this.desc,this.category,this.tid,this.avaibility);
       this.data.editCar(this.id, Car).subscribe(
         (data:car[]) => {
           console.log(data);
           this._router.navigate(['/Car']);
+          this.ngProgress.done();
         }
       );
     }
@@ -117,6 +119,7 @@ console.log(this.avaibility);
         (data: any) => {
           console.log(data);
           this._router.navigate(['/Car']);
+          this.ngProgress.done();
         }
       );
     }

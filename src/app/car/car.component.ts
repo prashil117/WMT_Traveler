@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 import {  TravellerService} from '../traveller.service';
 import {Traveler  } from '../../traveller';
+import { NgProgress } from 'ngx-progressbar';
 
 
 
@@ -25,7 +26,7 @@ export class CarComponent implements OnInit {
   displayedColumns = ['check','car_img','car_name', 'car_color','car_rate','car_category','car_status','car_action'];
 dataSource: MatTableDataSource<car>;
 
-  constructor(public data:CarService,public _router:Router,public data1:TravellerService) { }
+  constructor(public data:CarService,public _router:Router,public data1:TravellerService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
     this.data1.getTravellerByEmail(this.email).subscribe(
@@ -63,10 +64,11 @@ dataSource: MatTableDataSource<car>;
 
   onCarDelete(item)
   {
-  
+    this.ngProgress.start();
     this.data.deleteCar(item.car_id).subscribe(
       (data:any)=>{
         this.car.splice(this.car.indexOf(item),1);
+        this.ngProgress.done();
       }
     );
   }
@@ -112,13 +114,14 @@ dataSource: MatTableDataSource<car>;
        
        if(confirm("Are you sure you want to delete"))
        {
-         
+         this.ngProgress.start();
          this.data.deleteAllCar(this.delarr).subscribe(
            (data:any)=>{
              for(this.i=0;this.i<this.delarr.length;this.i++)
              {
                this.car.splice(this.car.indexOf(this.delarr[this.i]),1);
                console.log("DONE");
+               this.ngProgress.done();
              }
              this.car1=[];
            },

@@ -4,6 +4,7 @@ import { car } from '../car/carc';
 import { Router } from '@angular/router';
 import { TravellerService } from '../traveller.service';
 import { Traveler } from '../../traveller';
+import { NgProgress } from 'ngx-progressbar';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class AddCarComponent implements OnInit {
   email: string = localStorage.getItem('Email');
   selectedFile:File=null;
 
-  constructor(public data: CarService, public _router: Router, public data1: TravellerService,public changeDetectorRef:ChangeDetectorRef) { }
+  constructor(public data: CarService, public _router: Router, public data1: TravellerService,public changeDetectorRef:ChangeDetectorRef,public ngProgress: NgProgress) { }
 
   ngOnInit() {
     this.data1.getTravellerByEmail(this.email).subscribe(
@@ -135,7 +136,7 @@ export class AddCarComponent implements OnInit {
 
   onAdd(addform) {
 
-   
+   this.ngProgress.start();
     this.name=addform.value.car_name;
     this.desc=addform.value.car_details;
     this.rate=addform.value.car_rate;
@@ -162,6 +163,7 @@ export class AddCarComponent implements OnInit {
         console.log(this.category);
         console.log(this.avaibility);
         this._router.navigate(['/Car']);
+        this.ngProgress.done();
       },
       function (err) {
         alert(err);

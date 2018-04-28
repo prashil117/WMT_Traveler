@@ -5,6 +5,7 @@ import { Driver } from '../driver/driverc';
 import { Traveler } from '../../traveller';
 import { DriverService } from '../driver/driver.service';
 import { TravellerService } from '../traveller.service';
+import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-editdriver',
@@ -22,7 +23,7 @@ export class EditdriverComponent implements OnInit {
   avaibility:string="";
   email:string=localStorage.getItem('Email');
   
-  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravellerService,public data:DriverService) { }
+  constructor(public _router:Router,public _activatedRoute:ActivatedRoute,public _data:TravellerService,public data:DriverService,public ngProgress: NgProgress) { }
 
   ngOnInit() {
 
@@ -54,10 +55,12 @@ export class EditdriverComponent implements OnInit {
   }
 
   onUpdate(){
+    this.ngProgress.start();
     let driver=new Driver(null,this.name,this.no,this.mob,this.avaibility,this.tid);
     this.data.editDriver(this.id,driver).subscribe(
       ()=>{
         this._router.navigate(['/Driver']);
+        this.ngProgress.done();
       }
     );
   }
