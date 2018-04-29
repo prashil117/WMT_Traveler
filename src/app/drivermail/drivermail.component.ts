@@ -91,6 +91,7 @@ export class DrivermailComponent implements OnInit {
       (data: any) => {
 
         console.log("msg sent");
+        alert("Email has been Send");
         this.ngProgress.done();
       });
 

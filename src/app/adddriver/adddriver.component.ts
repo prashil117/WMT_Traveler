@@ -39,7 +39,7 @@ export class AdddriverComponent implements OnInit {
     this.name=addform.value.driver_name;
     this.no=addform.value.driver_license_no;
     this.mob=addform.value.Mobile_no;
-    this.avaibility=addform.value.driver_status;
+  //  this.avaibility=addform.value.driver_status;
     console.log(this.avaibility);
          this.data.addDriver(new Driver(null,this.name, this.no, this.mob,this.avaibility,this.tid)).subscribe(
            (data: Driver[]) => {

@@ -32,7 +32,6 @@ export class ForgotComponent implements OnInit {
     }
     else
     {
-this.ngProgress.start();
       this._data.getTravellerByEmail(this.email).subscribe(
         (data:Traveler[])=>{
           if(data.length==1){

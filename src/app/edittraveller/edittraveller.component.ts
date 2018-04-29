@@ -45,4 +45,8 @@ export class EdittravellerComponent implements OnInit {
     this._router.navigate(['/Resetpassword']);
   }
 
+  SignOut(){
+    this._router.navigate(['/Login']);
+  }
+
 }
