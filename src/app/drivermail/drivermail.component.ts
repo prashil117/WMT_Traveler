@@ -86,7 +86,7 @@ export class DrivermailComponent implements OnInit {
     this.name = item.driver_name;
     this.no = item.driver_license_no;
     this.id=item.driver_id;
-    this.msg = this.name + "yess " + this.no;
+    this.msg ="Name="+ this.name +" Mobile No="+ this.no;
     this.data3.sendMail(new Forget(this.msg, this.uemail, "Driver Details")).subscribe(
       (data: any) => {
 

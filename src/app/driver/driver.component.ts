@@ -54,6 +54,7 @@ export class DriverComponent implements OnInit {
       (data:any)=>{
         this.drivers.splice(this.drivers.indexOf(item),1);
         this.ngProgress.done();
+        this.ngOnInit();
       }
     );
   }
@@ -104,6 +105,7 @@ export class DriverComponent implements OnInit {
                  this.drivers.splice(this.drivers.indexOf(this.delarr[this.i]),1);
                  console.log("DONE");
                  this.ngProgress.done();
+                 this.ngOnInit();
                }
                this.drivers1=[];
              },
