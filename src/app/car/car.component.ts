@@ -69,6 +69,7 @@ dataSource: MatTableDataSource<car>;
       (data:any)=>{
         this.car.splice(this.car.indexOf(item),1);
         this.ngProgress.done();
+        this.ngOnInit();
       }
     );
   }
@@ -122,6 +123,7 @@ dataSource: MatTableDataSource<car>;
                this.car.splice(this.car.indexOf(this.delarr[this.i]),1);
                console.log("DONE");
                this.ngProgress.done();
+               this.ngOnInit();
              }
              this.car1=[];
            },
