@@ -13,7 +13,7 @@ import { NgProgress } from 'ngx-progressbar';
 })
 export class AdddriverComponent implements OnInit {
   name:string="";
-  no:number;
+  no:string;
   mob:string="";
   public driver: Driver[] = [];
   public traveller: Traveler[] = [];

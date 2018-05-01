@@ -16,7 +16,7 @@ export class EditdriverComponent implements OnInit {
   public _subscription:Subscription;
   id:number;
   public name:string="";
-  public no:number;
+  public no:string;
   public mob:string="";
   public tid: number;
   public traveller: Traveler[] = [];

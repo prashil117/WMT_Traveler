@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         if (data1.length==1) {
           localStorage.setItem('Email',this.email_id);
           console.log(this.email_id);
-        this._router.navigate(['/Dashboard']);
+        this._router.navigate(['/Car']);
         this.ngProgress.done();
           
         }
